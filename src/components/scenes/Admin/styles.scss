@@ -1,0 +1,14 @@
+@import '../../../assets/mixins';
+
+.adminMain{
+    padding: 6% 38% 0% 24%
+}
+
+.buttonStyle{
+    color: $white;
+    background-color: $primaryColor;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+
+}
