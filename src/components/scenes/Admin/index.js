@@ -2,13 +2,18 @@ import { Button, Grid, Paper, Stack, TextField, Typography } from "@mui/material
 import './styles.scss'
 import { Controller, useForm } from "react-hook-form"
 import TextFields from "../../sharedComponents/textFields"
+import { useDispatch } from "react-redux"
+import { addUser } from "../../../redux/user/actions"
 
 export const Admin = () => {
 
     const { control, handleSubmit } = useForm({})
+    const dispatch = useDispatch()
 
     const submitHandler = (data) => {
-        console.log("data", data)
+        const payload = { name: data.firstName }
+        console.log("data", payload)
+        dispatch(addUser(payload))
     }
 
     return (
@@ -27,9 +32,9 @@ export const Admin = () => {
                         {/* </Grid> */}
                         <Grid item direction='column' spacing={3}>
                             <Stack direction={'column'} spacing={1}>
-                                <label>Name</label>
+                                <label>First Name</label>
                                 <Controller
-                                    name="First Name"
+                                    name="firstName"
                                     control={control}
                                     rules={{
                                         // required:{
@@ -53,11 +58,11 @@ export const Admin = () => {
                             </Stack>
                         </Grid>
 
-                        <Grid item direction='column' spacing={3}>
+                        {/* <Grid item direction='column' spacing={3}>
                             <Stack direction={'column'} spacing={1}>
-                                <label>Name</label>
+                                <label>Last Name</label>
                                 <Controller
-                                    name="Last Name"
+                                    name="lastName"
                                     control={control}
                                     rules={{
                                         // required:{
@@ -79,7 +84,7 @@ export const Admin = () => {
                                     )}
                                 />
                             </Stack>
-                        </Grid>
+                        </Grid> */}
                         <Grid item container justifyContent="flex-end" alignItems="flex-end" >
                             <button className="buttonStyle">Submit</button>
                         </Grid>

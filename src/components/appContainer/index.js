@@ -6,7 +6,7 @@ import { Admin } from "../scenes/Admin";
 import './styles.scss'
 
 export const AppIndex = () => {
-    const [value, setValue] = useState(1)
+    const [value, setValue] = useState(0)
 
     const handleChange = (evetn, newValue) => {
         setValue(newValue)
